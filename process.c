@@ -432,6 +432,12 @@ void cpu_idle(void)
 	current_thread_info()->status |= TS_POLLING;
 
 	while (1) {
+
+                /* print Hello World message to verify 
+                 * newly recompiled kernel is picked up
+                 */
+                printk("Hello World\n");
+
 		tick_nohz_idle_enter();
 
 		while (!need_resched()) {
